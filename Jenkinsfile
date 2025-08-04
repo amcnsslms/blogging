@@ -6,6 +6,7 @@ pipeline {
                 sh 'rm -Rf jenkin01'
                 sh 'git clone https://github.com/SUSIGUGH/jenkin01.git'
                 sh 'ls -ltr jenkin01'
+                echo "Clone Repository Completed"
             }
         }
         
@@ -17,4 +18,5 @@ pipeline {
         
     }
 }
+
 
