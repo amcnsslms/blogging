@@ -9,7 +9,7 @@ pipeline {
             }
         }
         
-        stage('Build Docker Image') {
+        stage('Build Docker Image 01') {
             steps {
             sh 'cd jenkin01 && sudo docker build -t susigugh . && sudo docker image ls'
             }
@@ -17,3 +17,4 @@ pipeline {
         
     }
 }
+
