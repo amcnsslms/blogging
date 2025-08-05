@@ -17,7 +17,7 @@ pipeline {
 
 	stage('Run Blogging Site as Container from image') {
 	     steps {
-		sh 'ssh -o StrictHostKeyChecking=no ec2-user@43.204.32.168 "sudo docker run -dit -p3000:3000 blog"'
+		sh 'ssh -o StrictHostKeyChecking=no ec2-user@43.204.32.168 "sudo docker run -dit -p8089:8080 blog"'
 }
 }
 
