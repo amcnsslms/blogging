@@ -10,9 +10,17 @@ pipeline {
 	
 	stage('Create docker image in docker using the Docker') {
 	     steps {
-		sh 'ssh -o StrictHostKeyChecking=no ec2-user@43.204.168 "cd /home/ec2-user && sudo docker build -t blog ."'
+		sh 'ssh -o StrictHostKeyChecking=no ec2-user@43.204.32.168 "cd /home/ec2-user && sudo docker build -t blog ."'
 }
 }
+
+
+	stage('Run Blogging Site as Container from image') {
+	     steps {
+		sh 'ssh -o StrictHostKeyChecking=no ec2-user@43.204.32.168 "sudo docker run -dit -p3000:3000 blog"'
+}
+}
+
 
     }
 }

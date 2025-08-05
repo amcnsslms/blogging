@@ -1,1 +1,1 @@
-FROM 6esusigugh/blog
+FROM 6esusigugh/blog:01
