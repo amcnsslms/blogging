@@ -4,8 +4,9 @@ pipeline {
 
         stage('Send Dockerfile to docker server') {
             steps {
-		sh 'pwd'
+		echo "Welcome"
 		sh 'ls -ltr'
+		sh 'pwd'
             }
         }
     }
