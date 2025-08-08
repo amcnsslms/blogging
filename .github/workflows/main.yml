@@ -1,0 +1,19 @@
+name: List Files in Repository
+
+on:
+  push:
+    branches:
+      - main  # change to your branch name if needed
+
+jobs:
+  list-files:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: List files and folders
+      run: |
+        echo "Files and folders in the repository:"
+        ls -R
