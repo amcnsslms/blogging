@@ -23,4 +23,10 @@ pipeline {
             }
         }
     }
+
+    post {
+    success {
+    sh 'echo "Successful"'
+    }
+    }
 }
