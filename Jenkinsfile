@@ -18,6 +18,7 @@ pipeline {
         }
         stage('Run Container') {
             steps {
+                sh 'sudo docker stop blog01 && sudo docker rm blog01'
                 sh 'sudo docker run -dit --name="blog01" -p8081:8080 susigughimg'
             }
         }
