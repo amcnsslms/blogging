@@ -26,7 +26,7 @@ pipeline {
 
 	stage('Tag the image') {
 	steps {
-	sh 'sudo docker image tag susigughimg 6esusigugh/susigughimg:0109
+	sh 'sudo docker image tag susigughimg 6esusigugh/susigughimg:0109'
 	}
 	}
 
