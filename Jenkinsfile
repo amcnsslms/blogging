@@ -30,7 +30,7 @@ pipeline {
 	}
 	}
 
-	stage('Push image to dockerbub') {
+/*	stage('Push image to dockerbub') {
 	steps {
         withCredentials([usernamePassword(
             credentialsId: 'dockerhub-creds',
@@ -40,7 +40,7 @@ pipeline {
             sh 'echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin && docker push "$DOCKER_USERNAME/susigughimg:0109"'
         }
     }
-    }
+    }*/
 
 
     }
