@@ -37,7 +37,7 @@ pipeline {
             usernameVariable: 'DOCKER_USERNAME',
             passwordVariable: 'DOCKER_PASSWORD'
         )]) {
-            sh 'echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin && docker push "$DOCKER_USERNAME/susigughimg:0109"'
+            sh 'echo "$DOCKER_PASSWORD" | sudo docker login -u "$DOCKER_USERNAME" --password-stdin && sudo docker push "$DOCKER_USERNAME/susigughimg:0109"'
         }
     }
     }
