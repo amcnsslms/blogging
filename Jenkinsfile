@@ -20,7 +20,7 @@ pipeline {
             steps {
                 sh 'sudo docker stop blog01 && sudo docker rm blog01'
                 sh 'sudo docker run -dit --name="blog01" -p8081:8080 susigughimg'
-		sh 'sudo docker stop  blog01 && sudo docker rm blog01'
+		sh 'sudo docker stop blog01 && sudo docker rm blog01'
             }
         }
 
@@ -30,7 +30,7 @@ pipeline {
 	}
 	}
 
-/*	stage('Push image to dockerbub') {
+	stage('Push image to dockerbub') {
 	steps {
         withCredentials([usernamePassword(
             credentialsId: 'dockerhub-creds',
@@ -40,7 +40,7 @@ pipeline {
             sh 'echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin && docker push "$DOCKER_USERNAME/susigughimg:0109"'
         }
     }
-    }*/
+    }
 
 
     }
