@@ -43,6 +43,13 @@ pipeline {
     }
 
 
+    stage('push kubernetes files') {
+    steps {
+    sh 'scp blogging/blog.yaml ec2-user@172.31.36.41:/home/ec2-user/'
+}
+}
+
+
     }
 
     post {
