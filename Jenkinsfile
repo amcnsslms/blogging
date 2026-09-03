@@ -50,6 +50,14 @@ pipeline {
 }
 
 
+stage('Deploy blog.yaml') {
+steps {
+
+sh 'ssh ec2-user@172.31.36.41 && sudo kubectl delete -f /home/ec2-user/blog.yaml && sudo kubectl create -f /home/ec2-user/blog.yaml'
+
+}
+}
+
     }
 
     post {
