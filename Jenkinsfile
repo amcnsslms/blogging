@@ -45,7 +45,7 @@ pipeline {
 
     stage('push kubernetes files') {
     steps {
-    sh 'scp blogging/blog.yaml ec2-user@172.31.36.41:/home/ec2-user/'
+    sh 'scp blogging/*.yaml ec2-user@172.31.36.41:/home/ec2-user/'
 }
 }
 
@@ -53,10 +53,36 @@ pipeline {
 stage('Deploy blog.yaml') {
 steps {
 
-sh 'ssh ec2-user@172.31.36.41 "sudo kubectl create -f /home/ec2-user/blog.yaml && sudo kubectl delete -f /home/ec2-user/blog.yaml"'
+sh 'ssh ec2-user@172.31.36.41 "sudo kubectl apply -f /home/ec2-user/blog.yaml && sudo kubectl apply -f /home/ec2-user/srvc.yaml"'
 
 }
 }
+
+
+  stage('Expose Service') {
+            steps {
+               sh 'ssh ec2-user@172.31.36.41 "nohup kubectl port-forward --address 0.0.0.0 svc/srvc 30080:8080 &"'
+
+}
+}
+
+
+stage('Test Application URL') {
+    steps {
+        sh '''
+        echo "Testing application on NodePort 30080..."
+
+        curl -f --retry 5 --retry-delay 5 --max-time 10 http://172.31.36.41:30080
+
+        echo "Application test successful!"
+        '''
+    }
+}
+
+
+
+
+
 
     }
 
