@@ -61,7 +61,7 @@ sh 'ssh ec2-user@172.31.36.41 "sudo kubectl apply -f /home/ec2-user/blog.yaml &&
 
   stage('Expose Service') {
             steps {
-               sh 'ssh ec2-user@172.31.36.41 "nohup kubectl port-forward --address 0.0.0.0 svc/srvc 30080:8080 &"'
+               sh 'ssh ec2-user@172.31.36.41 "nohup sudo kubectl port-forward --address 0.0.0.0 svc/srvc 30080:8080 &"'
 
 }
 }
